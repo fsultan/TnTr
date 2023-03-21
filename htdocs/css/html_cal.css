@@ -1,0 +1,14 @@
+#main_calendar {
+	padding: 10px;
+}
+#main_calendar table {
+	table-layout:fixed;
+	width: 100%;
+}
+#main_calendar td {
+	text-align: left;
+	valign: top;
+}
+#main_calendar table a {
+	display: block;
+}

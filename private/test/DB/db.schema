@@ -1,0 +1,85 @@
+CREATE TABLE sessions (
+  id TEXT NOT NULL PRIMARY KEY,
+  a_session text NOT NULL);
+CREATE TABLE domains (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE clients (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    creator_id INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE projects (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    creator_id INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    client INTEGER NOT NULL REFERENCES clients(id),
+    description TEXT NOT NULL,
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE tasks (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    creator_id INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    project INTEGER NOT NULL REFERENCES projects(id),
+    description TEXT NOT NULL, 
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE times (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    user INTEGER NOT NULL REFERENCES users(id),
+    task INTEGER NOT NULL REFERENCES tasks(id),
+    description TEXT NOT NULL,
+    start_datetime INTEGER,
+    end_datetime   INTEGER,
+    create_time INTEGER,
+    update_time INTEGER);
+CREATE TABLE users (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+    name TEXT NOT NULL,
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE groups (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	creator_id  INTEGER NOT NULL REFERENCES users(id),
+	name	TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+	create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+    
+CREATE TABLE user_group (
+	user  INTEGER NOT NULL,
+	gid	INTEGER NOT NULL);
+CREATE TABLE client_group (
+	client  INTEGER NOT NULL,
+	gid	INTEGER NOT NULL);
+CREATE TABLE project_group (
+	project  INTEGER NOT NULL,
+	gid	INTEGER NOT NULL);
+CREATE TABLE task_group (
+	task  INTEGER NOT NULL,
+	gid	INTEGER NOT NULL);
+
+CREATE TABLE user_role (
+	user INTEGER NOT NULL,
+	role INTEGER NOT NULL);
+CREATE TABLE roles (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  level TEXT NOT NULL);
+
+

@@ -1,0 +1,77 @@
+<html>
+  <head>
+
+<!-- UTF-8 is the recommended encoding for your pages -->
+    <meta http-equiv="content-type" content="text/xml; charset=utf-8" />
+    <title>Zapatec DHTML Calendar</title>
+
+<!-- Loading Calendar JavaScript files -->
+    <script type="text/javascript" src="http://www.zapatec.com/website/main/../ajax/zpcal/../utils/zapatec.js"></script>
+    <script type="text/javascript" src="http://www.zapatec.com/website/main/../ajax/zpcal/../utils/zpdate.js"></script>
+    <script type="text/javascript" src="http://www.zapatec.com/website/main/../ajax/zpcal/src/calendar.js"></script>
+<!-- Loading language definition file -->
+    <script type="text/javascript" src="http://www.zapatec.com/website/main/../ajax/zpcal/lang/calendar-en.js"></script>
+
+  </head>
+  <body>
+
+<!-- The following empty element is the container for the calendar.
+It has the ID that you defined at step 1 (в__Typeв__).
+When вЂњCalendar.setupвЂќ is called below, the calendar will be generated
+in this element.  Feel free to position it the way you want
+using CSS.  You will normally want this to be a floating element
+which is why we generated one having the style в__float: rightв__. -->
+
+<div style="float: right; margin: 0 0 1em 1em" id="calendar"></div>
+
+<!-- The following JavaScript code defines a function that will
+get called each time the user modifies the date inside the calendar.
+To make sure that a date was actually clicked, we check the
+cal.dateClicked variable.  If a date wasn't clicked this will be
+вЂњfalseвЂќ and it usually means that the date was modified using the
+month or year navigation buttons, or that only the time got modified. -->
+
+    <script type="text/javascript">//<![CDATA[
+      function flatCalendarCallback(cal) {
+        if (cal.dateClicked) {
+          var url = "http://www.mydomain.com/" + Zapatec.Date.print(cal.config.date, "%Y/%m/%d/");
+          alert("Jumping to: ў__" + url + "ў__ (not really).");
+          // uncomment the following line to actually jump:
+          // window.location = url;
+        }
+      };
+    //]]></script>
+<noscript>
+<br/>
+This page uses a <a href="http://www.zapatec.com/website/main/products/prod1/"> Javascript Calendar </a>, but
+your browser does not support Javascript. 
+<br/>
+Either enable Javascript in your Browser or upgrade to a newer version.
+</noscript>
+
+    <script type="text/javascript">//<![CDATA[
+var cal  = new  Zapatec.Calendar({
+        firstDay          : 1,
+        lang             : "en",
+        theme             : "winter",
+        themeSize         : "small",
+        showEffectSpeed   : 10,
+        hideEffectSpeed   : 10,
+        range             : [2009.01, 2199.12],
+        flat              : "calendar",
+        flatCallback      : flatCalendarCallback
+      });
+    //]]></script>
+<noscript>
+<br/>
+This page uses a <a href="http://www.zapatec.com/website/main/products/prod1/"> Javascript Calendar </a>, but
+your browser does not support Javascript. 
+<br/>
+Either enable Javascript in your Browser or upgrade to a newer version.
+</noscript>
+hmm..
+<br><a href="http://www.zapatec.com/website/main/products/prod1/">Zapatec Javascript Calendar</a><br>
+
+  </body>
+</html>
+

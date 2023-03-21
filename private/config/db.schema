@@ -1,0 +1,80 @@
+CREATE TABLE sessions (
+  id TEXT NOT NULL PRIMARY KEY,
+  a_session text NOT NULL);
+CREATE TABLE domains (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE clients (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    user INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE projects (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    user INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    client INTEGER NOT NULL REFERENCES clients(id),
+    description TEXT NOT NULL,
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE tasks (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    user INTEGER NOT NULL REFERENCES users(id),
+    name TEXT NOT NULL,
+    project INTEGER NOT NULL REFERENCES projects(id),
+    description TEXT NOT NULL, 
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE times (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    user INTEGER NOT NULL REFERENCES users(id),
+    task INTEGER NOT NULL REFERENCES tasks(id),
+    description TEXT NOT NULL,
+    start_datetime INTEGER,
+    end_datetime   INTEGER,
+    create_time INTEGER,
+    update_time INTEGER);
+CREATE TABLE users (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+    name TEXT NOT NULL,
+    superuser INTEGER NOT NULL DEFAULT '0',
+    create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE groups (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	user  INTEGER NOT NULL REFERENCES users(id),
+	name	TEXT NOT NULL,
+    domain INTEGER NOT NULL REFERENCES domains(id),
+	create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+CREATE TABLE user_group (
+	user  INTEGER NOT NULL,
+	gid	INTEGER NOT NULL);
+CREATE TABLE rights (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	owner_type TEXT NOT NULL,
+	owner_id   INTEGER NOT NULL,
+	app_name TEXT NOT NULL,
+	app_id   INTEGER NOT NULL,
+    right  TEXT NOT NULL,
+    value INTEGER NOT NULL DEFAULT '0';
+    delegated_by INTEGER NOT NULL,
+	create_time INTEGER,
+    update_time INTEGER,
+    close_time INTEGER);
+
+

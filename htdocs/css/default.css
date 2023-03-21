@@ -1,0 +1,186 @@
+body {
+  font-family: "Verdana, Geneva, Arial, Helvetica, Sans-Serif"; 
+  color: #3F4C6B;
+}
+h1,h2 {
+  background-color: #EEEEEE;
+}
+div.clear {
+  clear: both;
+}
+#flash_msg {
+  color: #006E2E;
+  background-color: #CDEB8B;
+  float: left;
+  clear: both;
+  padding: 5px;
+  margin: 5px;
+  width: 400px;
+}
+#dev_version {
+ float: left;
+  background-color: orange;
+ color: black;
+ font-weight: bold; 
+ margin: 10px;
+}
+#dev_version span {
+ padding: 10px 80px 20px 80px;
+}
+#header{
+  float: left;
+  clear: left;
+  background-color: #ddd;
+  padding: 5px;
+}
+
+#gen_content {
+  float: left;
+  clear: both;
+padding-left: 10px;
+}
+#footer_tail_tpl {
+  font-size: small;
+  color: grey;
+  padding: 20px;
+  margin: 0 0 0 50px;
+  float: left;
+  clear: both;
+}
+#header_user_info {
+  float: right; 
+  margin-left: 30px; 
+  padding: 5px;
+  background-color: #eee;
+  border: 1px solid gray;
+}
+#navbar {
+  float: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 0.8em;
+  background-color: #eee;
+  border: 1px solid gray;
+  overflow: hidden;
+}
+#navbar ul {
+  margin-left: 0;
+  list-style: none;
+}
+#navbar li {
+  float: left;
+  white-space: nowrap;
+  padding: 3px 10px 4px 5px;
+}
+#navbar a {
+  text-decoration: none;
+}
+#navbar li:hover {
+  border-bottom: 3px #999 solid;
+  background-color:  #e0e0e0;
+  padding-right: 10px;
+  padding-bottom: 1px;
+}
+#navbar li:hover > a {
+  background-color:  #e0e0e0;
+}
+
+#navbar ul ul{
+  position: fixed;
+  margin-top: 4px;
+  margin-left: -5px;
+  padding-left: 10px;
+  background-color: #e0e0e0;
+}
+#navbar li li {
+  float: none;
+  padding-right: 10px;
+}
+
+div.form_block {
+   float: left;
+   clear: both;
+   display: inline-block;
+   padding: 5px;
+}
+   
+div.form_element {
+   float: left;
+   clear: left;
+   width: auto;
+   display: inline-block; 
+}
+div.active_form_element {
+   border: 1px #C3D9FF;
+   background: #C3D9FF;
+}
+
+div.rights_select_radio_group {
+  float: left;
+  margin: 0 5px;
+}
+div.rights_select_radio {
+   display: block;
+   float: left;
+   clear: left;
+   font-size:  0.8em;
+   padding: 0 5px;
+   background: #ccc;
+   min-width: 70px;
+   margin: 0 5px;
+}
+div.rights_select_radio_header {
+   font-weight: bold;
+   font-size: 1em;
+   background: #fff;
+   margin: 0 0 10px 0;
+   border-bottom: 0.5px solid gray;
+}
+
+/*  Forms  */
+
+#group_select_form {
+  border: 0.5px solid gray;
+}
+
+.group_select_checkbox {
+  color: darkgreen;
+}
+.group_select_checkbox label{
+  display: block;
+  width: 200px;
+  float: left;
+  clear: left;
+}
+.group_select_checkbox input{
+  display: block;
+  float: left;
+}
+
+label.radio_unchecked {
+  font-weight: normal;
+}
+label.radio_checked {
+  font-weight: bold;
+}
+input.radio_checked {
+  border: 0.5px solid green;
+}
+div.rights_select_radio.allow {
+  background-color: #6c6;
+}
+div.rights_select_radio.deny {
+  background-color: #cc0000;
+  color: #ddd;
+}
+div.rights_select_radio.inherit {
+  background-color: #9cf;
+}
+
+a.debug {
+  font-size: 0.6em;
+}
+/* create time */ 
+
+/*   */
+
